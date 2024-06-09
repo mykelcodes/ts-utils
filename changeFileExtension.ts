@@ -35,6 +35,8 @@ function changeFileExtension(directory: string, oldExtension: string, newExtensi
                 file.replace(/ /g, '-').replace(oldExtension, newExtension).toLowerCase()
             );
 
+            console.log(file.split('.')[0]);
+
             fs.rename(fullPath, newFilePath, (err) => {
                 if (err) {
                     console.error('Error renaming file:', err);
@@ -47,4 +49,4 @@ function changeFileExtension(directory: string, oldExtension: string, newExtensi
     });
 }
 
-changeFileExtension('/Users/michaelolawale/Downloads/Kiakia Finance Icons', '.svg', '.tsx');
+changeFileExtension('/Users/michaelolawale/Downloads/Iconscopy', '.svg', '.tsx');
