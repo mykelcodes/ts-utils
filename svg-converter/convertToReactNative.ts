@@ -39,6 +39,7 @@ export async function svgToReactNativeComponent(
 		{
 			plugins: ['@svgr/plugin-svgo', '@svgr/plugin-jsx'],
 			typescript: false,
+			// typescript: true,
 			jsx: {
 				babelConfig: {
 					plugins: [
@@ -60,6 +61,7 @@ export async function svgToReactNativeComponent(
 
 	// Modify the generated component to include size prop
 	const modifiedComponent = component
+		// .replace(/(props: SvgProps)/, 'props: SvgProps & { size?: number; }')
 		.replace(/(Svg,\s*SvgProps,)/, 'Svg, SvgProps, Path, G, Circle, Rect, ')
 		.replace(/(<Svg)/, '<Svg width={props.size} height={props.size}')
 		.replace(/width=\{(\d+|props\.width)\}/g, '')
