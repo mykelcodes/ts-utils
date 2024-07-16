@@ -16,7 +16,7 @@ async function processFile(
 			.split('-')
 			.map((part) => part.charAt(0).toUpperCase() + part.slice(1))
 			.join('')
-			.replace(/\s/g, '') + 'Icon';
+			.replace(/[^a-zA-Z0-9]/g, '') + 'Icon';
 
 	const { component, types } = await svgToReactNativeComponent(
 		svgContent,
